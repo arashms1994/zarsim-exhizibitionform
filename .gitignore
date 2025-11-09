@@ -23,5 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 
-# base-URL
+# api
 base.ts
+data.ts
