@@ -56,7 +56,7 @@ export default function RepresentationForm() {
         Email: "",
         Purchase_Volume: "",
         Fav_Products: "",
-        Representation_Request: "",
+        Representation_Request: "1",
       };
 
       await addListItem(listItem);

@@ -23,10 +23,7 @@ export const visitorFormSchema = z.object({
   Title: z.string().min(2, "نام خانوادگی الزامی است"),
   Job_Title: z.string().min(2, "سمت شغلی الزامی است"),
   Company_Name: z.string().min(2, "نام شرکت الزامی است"),
-  Private_Number: z
-    .string()
-    .min(10, "شماره موبایل معتبر نیست")
-    .regex(/^09\d{9}$/, "شماره موبایل باید با 09 شروع شود"),
+  Private_Number: z.string().min(10, "شماره موبایل معتبر نیست"),
   City: z.string().min(2, "شهر را وارد کنید"),
   Email: z.string().email("ایمیل معتبر نیست"),
   Purchase_Volume: z.string().min(1, "میزان خرید ماهانه را وارد کنید"),

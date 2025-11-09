@@ -55,7 +55,7 @@ export default function VisitorForm() {
         Phone_Number: "",
         Address: "",
         Type_Of_Ownership: "",
-        Representation_Request: "",
+        Representation_Request: "0",
         Activity_Field: "",
       };
 
