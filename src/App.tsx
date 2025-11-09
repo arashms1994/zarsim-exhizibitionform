@@ -1,27 +1,49 @@
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { prefixer } from "stylis";
+import theme from "./theme/theme.ts";
+import createCache from "@emotion/cache";
+import rtlPlugin from "stylis-plugin-rtl";
+import { CssBaseline, Stack } from "@mui/material";
+import AppProvider from "./providers/AppProvider.tsx";
+import { Bounce, ToastContainer } from "react-toastify";
+import { CacheProvider, ThemeProvider } from "@emotion/react";
+import EzhibitionForm from "./components/ExhibitionForm.tsx";
+
+const cacheRtl = createCache({
+  key: "muirtl",
+  stylisPlugins: [prefixer, rtlPlugin],
+});
 
 function App() {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <span className="text-red-600 font-bold text-6xl">Vite + React</span>
-      <div className="card">
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <Stack
+      direction="column"
+      justifyContent="center"
+      alignItems="center"
+      width="550px"
+      margin="left-auto`"
+    >
+      <AppProvider>
+        <CacheProvider value={cacheRtl}>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <EzhibitionForm />
+            <ToastContainer
+              position="top-center"
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick={false}
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="colored"
+              transition={Bounce}
+            />
+          </ThemeProvider>
+        </CacheProvider>
+      </AppProvider>
+    </Stack>
   );
 }
 
