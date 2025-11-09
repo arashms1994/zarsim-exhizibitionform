@@ -54,7 +54,6 @@ export default function VisitorForm() {
         Description: data.Description || "",
         Phone_Number: "",
         Address: "",
-        Expert_Name: "",
         Type_Of_Ownership: "",
         Representation_Request: "",
         Activity_Field: "",

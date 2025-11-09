@@ -1,16 +1,25 @@
-import { BASE_URL, LIST_GUID } from "./base";
 import { toast } from "react-toastify";
+import { getDigest } from "./getDigest";
+import { BASE_URL, LIST_GUID } from "./base";
+import { extractUsername, getCurrentUser } from "./getData";
 import type {
   AddListItemPayload,
   IBazdidKonandeganListItem,
 } from "@/types/type";
-import { getDigest } from "./getDigest";
 
 export async function addListItem(
   data: Partial<IBazdidKonandeganListItem>
 ): Promise<unknown> {
   const webUrl = BASE_URL;
   const listUrl = `${webUrl}/_api/web/lists(guid'${LIST_GUID}')/items`;
+
+  let expertName = "";
+  try {
+    const currentUser = await getCurrentUser();
+    expertName = extractUsername(currentUser);
+  } catch (error) {
+    console.error("Error getting current user:", error);
+  }
 
   const payload: AddListItemPayload = {
     __metadata: {
@@ -26,7 +35,7 @@ export async function addListItem(
   if (data.Email) payload.Email = data.Email;
   if (data.Address) payload.Address = data.Address;
   if (data.Description) payload.Description = data.Description;
-  if (data.Expert_Name) payload.Expert_Name = data.Expert_Name;
+  if (expertName) payload.Expert_Name = expertName;
   if (data.Type_Of_Ownership)
     payload.Type_Of_Ownership = data.Type_Of_Ownership;
   if (data.Representation_Request)

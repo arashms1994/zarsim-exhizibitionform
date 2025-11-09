@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { addListItem } from "@/api/addData";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Card, CardContent } from "@/components/ui/card";
+import type { IBazdidKonandeganListItem } from "@/types/type";
+import { ACTIVITY_FIELDS, OWNERSHIP_TYPES } from "@/constants/constants";
 import {
   Form,
   FormControl,
@@ -12,13 +15,10 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { ACTIVITY_FIELDS, OWNERSHIP_TYPES } from "@/constants/constants";
 import {
   formSchema,
   type RepresentationFormData,
 } from "@/validations/validation";
-import { addListItem } from "@/api/addData";
-import type { IBazdidKonandeganListItem } from "@/types/type";
 
 export default function RepresentationForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -56,7 +56,6 @@ export default function RepresentationForm() {
         Email: "",
         Purchase_Volume: "",
         Fav_Products: "",
-        Expert_Name: "",
         Representation_Request: "",
       };
 

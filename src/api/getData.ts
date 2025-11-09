@@ -18,3 +18,22 @@ export async function getCurrentUser(): Promise<string> {
 
   return rawLoginName;
 }
+
+export function extractUsername(currentUser: string): string {
+  let username = "";
+  if (currentUser.includes("|")) {
+    const parts = currentUser.split("|");
+    if (parts.length > 0) {
+      const lastPart = parts[parts.length - 1];
+      if (lastPart.includes("\\")) {
+        const splitParts = lastPart.split("\\");
+        username = splitParts[splitParts.length - 1].toLowerCase();
+      } else {
+        username = lastPart.toLowerCase();
+      }
+    }
+  } else {
+    username = currentUser.toLowerCase();
+  }
+  return username;
+}
