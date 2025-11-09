@@ -61,3 +61,20 @@ export interface RepresentationFormData {
   activityField: "عمده فروش" | "خرده فروش" | "انبوه ساز" | "پیمانکار" | "";
   expertOpinion: string;
 }
+
+export interface ICitiesApiItem {
+  Title: string;
+}
+
+
+export interface ISharePointListItem {
+  Title: string;
+  [key: string]: any;
+}
+
+export interface ISharePointResponse {
+  d: {
+    results: ISharePointListItem[];
+    __next?: string;
+  };
+}

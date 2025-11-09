@@ -19,9 +19,12 @@ import {
   formSchema,
   type RepresentationFormData,
 } from "@/validations/validation";
+import { useCities } from "@/hooks/useCities";
+import { CityAutocomplete } from "@/components/ui/city-autocomplete";
 
 export default function RepresentationForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { data: cities = [] } = useCities();
   const form = useForm<RepresentationFormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -178,7 +181,14 @@ export default function RepresentationForm() {
                 render={({ field }) => (
                   <FormItem>
                     <FormControl>
-                      <Input placeholder="شهر" {...field} />
+                      <CityAutocomplete
+                        value={field.value}
+                        onChange={field.onChange}
+                        onBlur={field.onBlur}
+                        placeholder="شهر را انتخاب کنید"
+                        cities={cities}
+                        className="border-[#0ead69]"
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
