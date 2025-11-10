@@ -141,7 +141,7 @@ export default function VisitorForm() {
                         onBlur={field.onBlur}
                         placeholder="شهر را انتخاب کنید"
                         cities={cities}
-                        className="border-[#0ead69]"
+                        className="border-[#1e7677]"
                       />
                     </FormControl>
                     <FormMessage />
@@ -178,7 +178,7 @@ export default function VisitorForm() {
               )}
             />
 
-            <div className="flex justify-between items-center flex-row-reverse border border-[#0ead69] rounded-md p-2.5">
+            <div className="flex justify-between items-center flex-row-reverse border border-[#1e7677] rounded-md p-2.5">
               <span>محصولات مورد علاقه</span>
               <FormField
                 control={form.control}
@@ -215,7 +215,7 @@ export default function VisitorForm() {
                                             )
                                           );
                                     }}
-                                    className="w-4 h-4 text-[#0ead69] focus:ring-[#0ead69] focus:ring-2 rounded"
+                                    className="w-4 h-4 text-[#1e7677] focus:ring-[#1e7677] focus:ring-2 rounded"
                                   />
                                 </FormControl>
                                 <FormLabel className="font-normal cursor-pointer">
@@ -247,10 +247,10 @@ export default function VisitorForm() {
 
             <div
               onClick={() => !isSubmitting && form.handleSubmit(onSubmit)()}
-              className={`w-full max-w-3xs mx-auto bg-[#0ead69] text-white text-center py-2 rounded-md transition-all duration-300 ${
+              className={`w-full max-w-3xs mx-auto bg-[#1e7677] text-white text-center py-2 rounded-md transition-all duration-300 ${
                 isSubmitting
                   ? "opacity-50 cursor-not-allowed"
-                  : "cursor-pointer hover:bg-[#0ead69]/80"
+                  : "cursor-pointer hover:bg-[#1e7677]/80"
               }`}
             >
               {isSubmitting ? "در حال ثبت..." : "ثبت اطلاعات"}

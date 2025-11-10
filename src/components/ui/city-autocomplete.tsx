@@ -68,14 +68,14 @@ export function CityAutocomplete({
         className={className}
       />
       {isOpen && filteredCities.length > 0 && (
-        <div className="absolute z-50 w-full mt-1 bg-white border border-[#0ead69] rounded-md shadow-lg max-h-60 overflow-auto rtl:text-right">
+        <div className="absolute z-50 w-full mt-1 bg-white border border-[#1e7677] rounded-md shadow-lg max-h-60 overflow-auto rtl:text-right">
           {filteredCities.map((city) => (
             <div
               key={city.Title}
               onClick={() => handleSelect(city.Title)}
               className={cn(
-                "px-4 py-2 cursor-pointer border-[#0ead69] hover:bg-[#0ead69] hover:text-white transition-colors",
-                value === city.Title && "bg-[#0ead69] text-white"
+                "px-4 py-2 cursor-pointer border-[#1e7677] hover:bg-[#1e7677] hover:text-white transition-colors",
+                value === city.Title && "bg-[#1e7677] text-white"
               )}
             >
               {city.Title}

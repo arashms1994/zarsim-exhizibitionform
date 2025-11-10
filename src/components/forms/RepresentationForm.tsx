@@ -143,7 +143,7 @@ export default function RepresentationForm() {
             />
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="flex flex-row-reverse justify-between items-center border border-[#0ead69] rounded-md p-1.5">
+              <div className="flex flex-row-reverse justify-between items-center border border-[#1e7677] rounded-md p-1.5">
                 <span>نوع مالکیت</span>
                 <FormField
                   control={form.control}
@@ -162,7 +162,7 @@ export default function RepresentationForm() {
                                 value={type}
                                 checked={field.value === type}
                                 onChange={(e) => field.onChange(e.target.value)}
-                                className="w-4 h-4 text-[#0ead69] focus:ring-[#0ead69] focus:ring-2"
+                                className="w-4 h-4 text-[#1e7677] focus:ring-[#1e7677] focus:ring-2"
                               />
                               <span className="text-sm">{type}</span>
                             </label>
@@ -187,7 +187,7 @@ export default function RepresentationForm() {
                         onBlur={field.onBlur}
                         placeholder="شهر را انتخاب کنید"
                         cities={cities}
-                        className="border-[#0ead69]"
+                        className="border-[#1e7677]"
                       />
                     </FormControl>
                     <FormMessage />
@@ -196,7 +196,7 @@ export default function RepresentationForm() {
               />
             </div>
 
-            <div className="flex justify-between items-center flex-row-reverse border border-[#0ead69] rounded-md p-2.5">
+            <div className="flex justify-between items-center flex-row-reverse border border-[#1e7677] rounded-md p-2.5">
               <span>زمینه فعالیت</span>
               <FormField
                 control={form.control}
@@ -233,7 +233,7 @@ export default function RepresentationForm() {
                                             )
                                           );
                                     }}
-                                    className="w-4 h-4 text-[#0ead69] focus:ring-[#0ead69] focus:ring-2 rounded"
+                                    className="w-4 h-4 text-[#1e7677] focus:ring-[#1e7677] focus:ring-2 rounded"
                                   />
                                 </FormControl>
                                 <FormLabel className="font-normal cursor-pointer">
@@ -265,10 +265,10 @@ export default function RepresentationForm() {
 
             <div
               onClick={() => !isSubmitting && form.handleSubmit(onSubmit)()}
-              className={`w-full max-w-3xs mx-auto bg-[#0ead69] text-white text-center py-2 rounded-md transition-all duration-300 ${
+              className={`w-full max-w-3xs mx-auto bg-[#1e7677] text-white text-center py-2 rounded-md transition-all duration-300 ${
                 isSubmitting
                   ? "opacity-50 cursor-not-allowed"
-                  : "cursor-pointer hover:bg-[#0ead69]/80"
+                  : "cursor-pointer hover:bg-[#1e7677]/80"
               }`}
             >
               {isSubmitting ? "در حال ثبت..." : "ثبت اطلاعات"}
