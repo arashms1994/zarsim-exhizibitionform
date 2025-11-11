@@ -66,7 +66,6 @@ export interface ICitiesApiItem {
   Title: string;
 }
 
-
 export interface ISharePointListItem {
   Title: string;
   [key: string]: any;
@@ -77,4 +76,13 @@ export interface ISharePointResponse {
     results: ISharePointListItem[];
     __next?: string;
   };
+}
+
+export interface ICityAutocompleteProps {
+  value: string | undefined;
+  onChange: (value: string) => void;
+  onBlur?: () => void;
+  placeholder?: string;
+  cities: ICitiesApiItem[];
+  className?: string;
 }

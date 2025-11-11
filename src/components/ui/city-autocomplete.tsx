@@ -1,16 +1,7 @@
 import { useState, useMemo } from "react";
 import { Input } from "./input";
 import { cn } from "@/lib/utils";
-import type { ICitiesApiItem } from "@/types/type";
-
-interface CityAutocompleteProps {
-  value: string;
-  onChange: (value: string) => void;
-  onBlur?: () => void;
-  placeholder?: string;
-  cities: ICitiesApiItem[];
-  className?: string;
-}
+import type { ICityAutocompleteProps } from "@/types/type";
 
 export function CityAutocomplete({
   value,
@@ -19,7 +10,7 @@ export function CityAutocomplete({
   placeholder = "شهر را انتخاب کنید",
   cities,
   className,
-}: CityAutocompleteProps) {
+}: ICityAutocompleteProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -60,7 +51,7 @@ export function CityAutocomplete({
     <div className="relative">
       <Input
         type="text"
-        value={value}
+        value={value || ""}
         onChange={handleInputChange}
         onFocus={handleInputFocus}
         onBlur={handleInputBlur}
@@ -75,7 +66,7 @@ export function CityAutocomplete({
               onClick={() => handleSelect(city.Title)}
               className={cn(
                 "px-4 py-2 cursor-pointer border-[#1e7677] hover:bg-[#1e7677] hover:text-white transition-colors",
-                value === city.Title && "bg-[#1e7677] text-white"
+                (value || "") === city.Title && "bg-[#1e7677] text-white"
               )}
             >
               {city.Title}
