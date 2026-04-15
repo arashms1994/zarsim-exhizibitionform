@@ -1,9 +1,18 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { addListItem } from "@/api/addData";
 import { Input } from "@/components/ui/input";
+import { useCities } from "@/hooks/useCities";
 import { Textarea } from "@/components/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { PRODUCT_OPTIONS } from "@/constants/constants";
 import { Card, CardContent } from "@/components/ui/card";
+import type { IBazdidKonandeganListItem } from "@/types/type";
+import { CityAutocomplete } from "@/components/ui/city-autocomplete";
+import {
+  visitorFormSchema,
+  type VisitorFormData,
+} from "@/validations/validation";
 import {
   Form,
   FormControl,
@@ -12,15 +21,6 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { PRODUCT_OPTIONS } from "@/constants/constants";
-import {
-  visitorFormSchema,
-  type VisitorFormData,
-} from "@/validations/validation";
-import { addListItem } from "@/api/addData";
-import type { IBazdidKonandeganListItem } from "@/types/type";
-import { useCities } from "@/hooks/useCities";
-import { CityAutocomplete } from "@/components/ui/city-autocomplete";
 
 export default function VisitorForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -206,14 +206,14 @@ export default function VisitorForm() {
                                       const checked = e.target.checked;
                                       return checked
                                         ? field.onChange([
-                                            ...(field.value || []),
-                                            product,
-                                          ])
+                                          ...(field.value || []),
+                                          product,
+                                        ])
                                         : field.onChange(
-                                            (field.value || []).filter(
-                                              (p) => p !== product
-                                            )
-                                          );
+                                          (field.value || []).filter(
+                                            (p) => p !== product
+                                          )
+                                        );
                                     }}
                                     className="w-4 h-4 text-[#1e7677] focus:ring-[#1e7677] focus:ring-2 rounded"
                                   />
@@ -247,11 +247,10 @@ export default function VisitorForm() {
 
             <div
               onClick={() => !isSubmitting && form.handleSubmit(onSubmit)()}
-              className={`w-full max-w-3xs mx-auto bg-[#1e7677] text-white text-center py-2 rounded-md transition-all duration-300 ${
-                isSubmitting
-                  ? "opacity-50 cursor-not-allowed"
-                  : "cursor-pointer hover:bg-[#1e7677]/80"
-              }`}
+              className={`w-full max-w-3xs mx-auto bg-[#1e7677] text-white text-center py-2 rounded-md transition-all duration-300 ${isSubmitting
+                ? "opacity-50 cursor-not-allowed"
+                : "cursor-pointer hover:bg-[#1e7677]/80"
+                }`}
             >
               {isSubmitting ? "در حال ثبت..." : "ثبت اطلاعات"}
             </div>

@@ -26,3 +26,4 @@ dist-ssr
 # api
 base.ts
 data.ts
+docs.md

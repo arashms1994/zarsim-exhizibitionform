@@ -33,7 +33,6 @@ export async function fetchAllCities(): Promise<ICitiesApiItem[]> {
     nextUrl = data.d.__next;
   }
 
-  // حذف شهرهای تکراری - فقط یک نمونه از هر شهر
   const uniqueCities = Array.from(
     new Map(allCities.map((city) => [city.Title, city])).values()
   );

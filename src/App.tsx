@@ -5,8 +5,8 @@ import rtlPlugin from "stylis-plugin-rtl";
 import { CssBaseline, Stack } from "@mui/material";
 import AppProvider from "./providers/AppProvider.tsx";
 import { Bounce, ToastContainer } from "react-toastify";
-import { CacheProvider, ThemeProvider } from "@emotion/react";
 import EzhibitionForm from "./components/ExhibitionForm.tsx";
+import { CacheProvider, ThemeProvider } from "@emotion/react";
 
 const cacheRtl = createCache({
   key: "muirtl",
