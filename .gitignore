@@ -26,4 +26,7 @@ dist-ssr
 # api
 base.ts
 data.ts
+
+# docs
 docs.md
+zarsim_exhibition_form.html
